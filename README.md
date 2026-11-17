@@ -1,2 +1,2 @@
-# Task_01
+# Internship Tasks
 Internship Task
