@@ -10,10 +10,13 @@ st.set_page_config(
     layout="centered"
 )
 
-# Load saved model and preprocessing objects
+# Load saved model using the exact folder path where app.py lives
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(BASE_DIR, "depression_model.joblib")
+
 @st.cache_resource
 def load_artifact():
-    return joblib.load("depression_model.joblib")
+    return joblib.load(MODEL_PATH)
 
 artifact = load_artifact()
 model = artifact["model"]
