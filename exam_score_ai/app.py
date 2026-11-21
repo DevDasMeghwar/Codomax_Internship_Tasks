@@ -1,3 +1,4 @@
+import os
 import joblib
 import matplotlib.pyplot as plt
 import numpy as np
@@ -9,9 +10,10 @@ st.set_page_config(
     page_title="AI Exam Score Predictor", page_icon="🎓", layout="centered"
 )
 
-# 2. Load the Saved AI Model & Column Order
-model = joblib.load("exam_score_model.joblib")
-model_columns = joblib.load("model_columns.joblib")
+# 2. Load the Saved AI Model & Column Order (works from any working directory)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+model = joblib.load(os.path.join(BASE_DIR, "exam_score_model.joblib"))
+model_columns = joblib.load(os.path.join(BASE_DIR, "model_columns.joblib"))
 
 st.title("🎓 AI Exam Score Predictor & Study Coach")
 st.markdown(
